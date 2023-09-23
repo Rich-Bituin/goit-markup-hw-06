@@ -755,6 +755,11 @@ textarea:focus {
   height: 16px;
 }
 
+.form-label-privacy-policy {
+  line-height: 1.33em;
+  color: var(--color-iris);
+}
+
 .form-submit {
   font-weight: 500;
   letter-spacing: 0.64px;
