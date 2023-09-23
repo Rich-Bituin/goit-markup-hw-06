@@ -370,6 +370,16 @@
           </li>
         </ul>
       </div>
+      <div class="footer-newsletter">
+        <p class="footer-newsletter-header">Subscribe</p>
+        <input class="footer-newsletter-textbox" type="text" name="full_name" placeholder="E-mail">
+        <button class="footer-newsletter-subscription" type="submit">
+          <Span>Subscribe</Span>
+          <svg class="footer-newsletter-subscription-icon">
+            <use href="/goit-markup-hw-06/images/icons.svg#icon-telegram" />
+          </svg>
+        </button>
+      </div>
     </div>
   </footer>
 
@@ -406,11 +416,14 @@
           <textarea name="user-comment" rows="3" placeholder="Text input"></textarea>
         </label>
         <label class="form-label checkbox">
-          <input type="checkbox" name="agree_privacy_policy">
+          <input type="checkbox" class="form-label-checkbox" name="agree_privacy_policy">
           <svg class="form-label-check">
             <use href="/goit-markup-hw-06/images/icons.svg#icon-check" />
           </svg>
-          <div>I accept the terms and conditions of the&nbsp<a href="#link">Privacy Policy</a></div>
+          <div class="form-label-conditions">
+            <span>I accept the terms and conditions of the</span>
+            <a class="form-label-privacy-policy" href="#link">Privacy Policy</a>
+          </div>
         </label class="form-label">
         <button class="form-submit" type="submit">Send</button>
       </form>

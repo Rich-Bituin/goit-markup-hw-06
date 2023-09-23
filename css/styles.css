@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+:focus {
+  outline: 0;
+}
+
 body {
   font-family: 'roboto', sans-serif;
   color: var(--color-navy-blue);
@@ -159,7 +163,7 @@ img {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(/goit-markup-hw-03/images/hero-bg-img.jpg);
+    url(/goit-markup-hw-06/images/hero-bg-img.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1440px;
@@ -195,7 +199,9 @@ img {
 }
 
 .hero-button:hover,
-.hero-button:active {
+.hero-button:active,
+.footer-newsletter-subscription:hover,
+.footer-newsletter-subscription:active {
   background: var(--color-ocean);
   cursor: pointer;
   transition: background var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
@@ -432,7 +438,9 @@ img {
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
   border-top: 0;
-  transition: box-shadow var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: border, box-shadow;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-selection-list-items-header {
@@ -487,10 +495,14 @@ img {
 
 .footer-container {
   display: flex;
-  gap: 120px;
 }
 
-.footer-socials-header {
+.footer-socials {
+  padding-left: 120px;
+}
+
+.footer-socials-header,
+.footer-newsletter-header {
   font-weight: 500;
   color: var(--color-white);
 }
@@ -519,8 +531,51 @@ img {
 
 .footer-socials-link-list-address:hover {
   background-color: var(--color-green);
-  transition: background-color var(--transition-duration)
-    cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-newsletter {
+  padding-left: 80px;
+}
+
+.footer-newsletter-textbox {
+  height: 40px;
+  width: 264px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid var(--color-white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  padding-left: 16px;
+  caret-color: white;
+  margin-top: 16px;
+}
+
+.footer-newsletter ::placeholder {
+  color: var(--color-white);
+  font-size: 12px;
+  line-height: 2em;
+  letter-spacing: 0.48px;
+}
+
+.footer-newsletter-subscription {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  gap: 16px;
+  height: 40px;
+  margin-left: 24px;
+  background-color: var(--color-iris);
+  color: white;
+  border-radius: 4px;
+  border: 0;
+}
+
+.footer-newsletter-subscription-icon {
+  height: 24px;
+  width: 24px;
 }
 
 .modal {
@@ -581,6 +636,15 @@ img {
   cursor: pointer;
 }
 
+.modal-close:hover {
+  background-color: var(--color-ocean);
+  border-color: var(--color-ocean);
+  fill: var(--color-white);
+  transition-property: background, fill, border;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .modal-close svg {
   color: var(--color-navy-blue);
   width: 8px;
@@ -627,14 +691,20 @@ img {
   border-radius: 4px;
 }
 
-.form-label input:focus,
+.form-label input:focus:not(.form-label-check),
 textarea:focus {
   border-color: var(--color-iris);
   outline: 0;
+  transition-property: border;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-label input:focus + svg {
+.form-label input:focus + svg:not(.form-label-check) {
   fill: var(--color-iris);
+  transition-property: fill;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-label input {
@@ -646,7 +716,7 @@ textarea:focus {
   height: 120px;
 }
 
-::placeholder {
+.modal ::placeholder {
   color: rgba(46, 47, 66, 0.4);
 }
 
@@ -664,13 +734,25 @@ textarea:focus {
   width: 16px;
   height: 16px;
   margin-right: 8px;
+  border-radius: 2px;
+}
+
+.form-label.checkbox:hover,
+.form-label.checkbox:active {
+  cursor: pointer;
+}
+
+.form-label-checkbox:checked + .form-label-check {
+  background-color: var(--color-ocean);
+  border-radius: 2px;
+  fill: var(--color-cloud);
 }
 
 .form-label-check {
+  fill: var(--color-dairy);
   position: absolute;
   width: 16px;
   height: 16px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
 }
 
 .form-submit {
@@ -683,5 +765,13 @@ textarea:focus {
   border: 0;
   padding: 16px 66px;
   margin: 24px 95px;
+}
+
+.form-submit:hover,
+.form-submit:active {
   cursor: pointer;
+  background-color: var(--color-ocean);
+  transition-property: background;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
